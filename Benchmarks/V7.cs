@@ -4,12 +4,14 @@ using System.Runtime.InteropServices;
 
 namespace Benchmarks;
 
+
+// More info https://devblogs.microsoft.com/premier-developer/performance-traps-of-ref-locals-and-ref-returns-in-c/
 [SimpleJob]
 [MemoryDiagnoser]
 public class V7RefIndexer
 {
-    long[] sampleArray;
-    OldStyleList<long> oldStyleList;
+    long[]? sampleArray;
+    OldStyleList<long>? oldStyleList;
 
     long randomLong;
     int randomIndex;
@@ -122,11 +124,24 @@ public class V7RefRet
     }
 
     [Benchmark]
-    public long RetByValue() => MethodRetByByValue().l1;
+    public long RetByValue()
+    {
+        long result = 0;
+        for (int i = 0; i < 100; i++)
+            result = MethodRetByByValue().l1;
+
+        return result;
+    }
 
     [Benchmark]
-    public long RetByReference() => MethodRetByByReference().l1;
+    public long RetByReference()
+    {
+        long result = 0;
+        for (int i = 0; i < 100; i++)
+            result = MethodRetByByReference().l1;
 
+        return result;
+    }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     BigStruct MethodRetByByValue() => structValue;

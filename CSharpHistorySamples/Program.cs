@@ -2,11 +2,17 @@
 
 Console.WriteLine("************************************ V6 ************************************");
 
-// await V6.MakeGetRequestWithExceptionHandling("https://localHost:666");
-// await V6.MakeGetRequestWithExceptionHandling($"https://google.com/not-existing-site/{Random.Shared.NextDouble()}");
+// Exception and 'when' filtering 
+
+// await V6.MakeGetRequestWithExceptionFilters("https://localHost:666");
+// await V6.MakeGetRequestWithExceptionFilters($"https://google.com/not-existing-site/{Random.Shared.NextDouble()}");
 
 
 Console.WriteLine("************************************ V7 ************************************");
+
+// local function
+// ref return
+// ref local
 
 V7.RefRetAndRetLocals();
 V7.LocalFunctionAndEnumerator();
