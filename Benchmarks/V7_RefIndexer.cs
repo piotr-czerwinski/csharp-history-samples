@@ -8,10 +8,10 @@ namespace Benchmarks;
 // More info https://devblogs.microsoft.com/premier-developer/performance-traps-of-ref-locals-and-ref-returns-in-c/
 [SimpleJob]
 [MemoryDiagnoser]
-public class V7RefIndexer
+public class V7_RefIndexer
 {
     long[]? sampleArray;
-    OldStyleList<long>? oldStyleList;
+    GetSetIndexerList<long>? getSetIndexerList;
 
     long randomLong;
     int randomIndex;
@@ -20,24 +20,24 @@ public class V7RefIndexer
     public void Setup()
     {
         sampleArray = Enumerable.Range(0, 100).Select(x => (long)x).ToArray();
-        oldStyleList = new OldStyleList<long>(sampleArray);
+        getSetIndexerList = new GetSetIndexerList<long>(sampleArray);
 
         randomLong = Random.Shared.NextInt64();
         randomIndex = Random.Shared.Next(0, sampleArray.Length - 1);
     }
 
     [Benchmark]
-    public long SetBySetter() => oldStyleList[randomIndex] = randomLong;
+    public long SetBySetter() => getSetIndexerList[randomIndex] = randomLong;
 
     [Benchmark]
     public long SetByRef() => sampleArray.AsSpan()[randomIndex] = randomLong;
 
 
-    private class OldStyleList<T>
+    private class GetSetIndexerList<T>
     {
         private readonly T[] _items;
 
-        public OldStyleList(T[] items)
+        public GetSetIndexerList(T[] items)
         {
             _items = new T[items.Length];
             Array.Copy(items, _items, items.Length);
@@ -106,46 +106,4 @@ public class V7RefIndexer
     }
 
     #endregion
-}
-
-public class V7RefRet
-{
-    public struct BigStruct
-    {
-        public long l1, l2;
-    }
-
-    BigStruct structValue;
-
-    [GlobalSetup]
-    public void Setup()
-    {
-        structValue.l1 = Random.Shared.NextInt64();
-    }
-
-    [Benchmark]
-    public long RetByValue()
-    {
-        long result = 0;
-        for (int i = 0; i < 100; i++)
-            result = MethodRetByByValue().l1;
-
-        return result;
-    }
-
-    [Benchmark]
-    public long RetByReference()
-    {
-        long result = 0;
-        for (int i = 0; i < 100; i++)
-            result = MethodRetByByReference().l1;
-
-        return result;
-    }
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    BigStruct MethodRetByByValue() => structValue;
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    ref BigStruct MethodRetByByReference() => ref structValue;
 }

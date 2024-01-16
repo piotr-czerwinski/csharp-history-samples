@@ -2,30 +2,8 @@
 
 namespace CSharpHistorySamples;
 
-internal static class V7
+internal static partial class V7
 {
-    public static void RefRetAndRetLocals()
-    {
-        WriteLine(Environment.NewLine + "RefRetAndRetLocals");
-        var sampleArray = new int[] { 1, 2, 3, 4 };
-
-        // ref local
-        ref int firstValueRef = ref GetArrayFirstValueRef(sampleArray);
-
-        firstValueRef = 42;
-        WriteLine($"firstValueRef: {sampleArray[0]}");
-
-        // ref return and inline value assignment
-        GetArrayFirstValueRef(sampleArray) = 43;
-        WriteLine($"firstValueRef: {sampleArray[0]}");
-
-        // local function && ref return
-        static ref int GetArrayFirstValueRef(int[] array)
-        {
-            return ref array[0];
-        }
-    }
-
     public static void LocalFunctionAndEnumerator()
     {
         WriteLine();
