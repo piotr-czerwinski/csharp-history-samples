@@ -1,7 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-using static System.Console;
-
-namespace CSharpHistorySamples;
+﻿namespace CSharpHistorySamples;
 
 internal static partial class V7
 {
