@@ -4,7 +4,7 @@ internal static partial class V6
 {
     // When in a catch clause
     // https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/when#when-in-a-catch-clause
-    public static async Task MakeGetRequestWithExceptionFilters(string requestURI, bool catchWhenUnknownStatusCode = true)
+    internal static async Task MakeGetRequestWithExceptionFilters(string requestURI, bool catchWhenUnknownStatusCode = true)
     {
         var client = new HttpClient();
         var streamTask = client.GetStringAsync(requestURI);

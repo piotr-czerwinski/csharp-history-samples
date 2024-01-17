@@ -27,7 +27,7 @@ public class V7_RefIndexer
     }
 
     [Benchmark]
-    public long SetBySetter() => getSetIndexerList[randomIndex] = randomLong;
+    public long SetBySetter() => getSetIndexerList![randomIndex] = randomLong;
 
     [Benchmark]
     public long SetByRef() => sampleArray.AsSpan()[randomIndex] = randomLong;

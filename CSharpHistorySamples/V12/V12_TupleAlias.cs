@@ -12,7 +12,7 @@ internal partial class V12
         var rawTuple = (1, 2);
         Range range = rawTuple;
         Point point = range; // can be assigned, as int is implicitly convertible to double
-        // range = point; // not valid
+        // range = point; // not valid, as opposite conversion is not valid
 
         WriteLine($"raw tuple: {rawTuple}");
         WriteLine($"range: {range}");

@@ -2,7 +2,7 @@
 
 internal static partial class V7
 {
-    public static void RefReturnAndRefLocals()
+    internal static void RefReturnAndRefLocals()
     {
         WriteLine(Environment.NewLine + "RefRetAndRetLocals");
         var sampleArray = new int[] { 1, 2, 3, 4 };

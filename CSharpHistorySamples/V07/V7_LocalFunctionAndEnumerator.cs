@@ -2,7 +2,7 @@
 
 internal static partial class V7
 {
-    public static void LocalFunctionAndEnumerator()
+    internal static void LocalFunctionAndEnumerator()
     {
         WriteLine();
 
