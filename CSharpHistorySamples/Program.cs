@@ -28,6 +28,7 @@ V71.PatternMatchingForGenericParameter(parameter: "lorem ipsum");
 WriteLine("************************************ V7.2 (11.2017) ************************************");
 
 V72.StackallocArraysInSafeContext(arraySize: 256);
+_ = new V72.DerivedFromBaseWithPrivateProtectedMember();
 
 WriteLine("************************************ V7.3 (5.2018) ************************************");
 WriteLine("(default for .net standard 2.0, core <3.x and .net framework)");
