@@ -7,7 +7,7 @@ internal partial class V12
 {
     internal static void TupleAlias()
     {
-        WriteLine(Environment.NewLine + "TupleAlias");
+        WriteFirstLineInSample("Tuple alias");
 
         var rawTuple = (1, 2);
         Range range = rawTuple;

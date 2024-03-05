@@ -5,7 +5,7 @@ internal static partial class V73
     // https://blog.jetbrains.com/dotnet/2018/07/13/tuple-equality/
     internal static void TupleEquality()
     {
-        WriteLine();
+        WriteFirstLineInSample("Tuple Equality");
 
         var sampleTuple = (x: 1, y: 2);
         var anotherTuple = (a: 1, b: 2);

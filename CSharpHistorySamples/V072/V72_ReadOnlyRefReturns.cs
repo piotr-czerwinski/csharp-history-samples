@@ -4,7 +4,7 @@ internal static partial class V72
 {
     internal static void ReadOnlyRefReturns()
     {
-        WriteLine();
+        WriteFirstLineInSample("Read only ref returns");
 
         ref readonly MutableStruct2 mutableStructRef = ref ReadOnlyReturnOfMutableStruct();
         // mutableStructRef.a = 1; // not allowed

@@ -16,7 +16,7 @@ internal static partial class V8
         // will compile as
         // var tmp = someReadOnlyStruct; <-- hidden copy
         // return tmp.IncrementMightMutateState();
-        someReadOnlyStruct.IncrementMightMutateState();
+        someReadOnlyStruct.IncrementMutatesState();
 
         // will not create hidden copy
         someReadOnlyStruct.IncrementDoesNotMutateState();
@@ -36,26 +36,43 @@ internal static partial class V8
             };
         }
 
-        internal void IncrementMightMutateState()
+        internal void IncrementMutatesState()
         {
             a++;
             valuesDict["a"] = valuesDict["a"] + 1;
         }
 
+        internal void NoOp()
+        {
+        }
+
         internal readonly void IncrementDoesNotMutateState()
         {
             //a++; compiler error
-            valuesDict["a"] = valuesDict["a"] + 1; // this does not mutate anything in the struct (does not change valueDict reference)
+
+            // this does not mutate anything in the struct (does not change valueDict reference)
+            valuesDict["a"] = valuesDict["a"] + 1;
+
+            // generates compiler warning for hidden copy (might be resolved with adding readonly modifier to NoOp
+            NoOp();
+
+            // even getter results with warning if not marked as readonly
+            _ = AAccessor;
         }
 
         public readonly int A
         {
-            get { return a; }
-            set 
+            get
+            {
+                return a;
+            }
+            set
             {
                 //a = value; compiler error
                 valuesDict["a"] = value;
             }
         }
+
+        public int AAccessor => a;
     }
 }

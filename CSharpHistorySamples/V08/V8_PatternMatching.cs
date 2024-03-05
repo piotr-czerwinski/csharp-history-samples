@@ -9,7 +9,7 @@ internal static partial class V8
     // https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/tutorials/pattern-matching
     internal static void PatternMatchingSwitchExpression()
     {
-        WriteLine("Pattern matching (switch expression)");
+        WriteFirstLineInSample("Pattern matching (switch expression)");
 
         // switch by constant enum (might be any other constant like int, string)
         WriteLine(FileAccess.Read switch

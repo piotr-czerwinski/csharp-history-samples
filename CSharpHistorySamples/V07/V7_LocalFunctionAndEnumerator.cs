@@ -4,7 +4,7 @@ internal static partial class V7
 {
     internal static void LocalFunctionAndEnumerator()
     {
-        WriteLine();
+        WriteFirstLineInSample("Local Function and Enumerator");
 
         try
         {

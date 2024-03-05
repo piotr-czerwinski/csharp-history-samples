@@ -6,7 +6,7 @@ internal static partial class V11
 {
     internal static void PatternMatchingForSpans()
     {
-        WriteLine("Pattern matching");
+        WriteFirstLineInSample("Pattern matching for spans");
 
         var spanInput = "xyz".AsSpan();
 

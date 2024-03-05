@@ -7,7 +7,7 @@ internal static partial class V7
 {
     internal static void PatternMatchingInSwitch()
     {
-        WriteLine("Pattern matching (switch)");
+        WriteFirstLineInSample("Pattern matching (switch)");
 
         ICollection collection = new List<int>() { 42 };
 

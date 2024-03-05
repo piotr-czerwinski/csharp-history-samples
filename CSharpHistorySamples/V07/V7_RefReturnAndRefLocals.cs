@@ -4,7 +4,7 @@ internal static partial class V7
 {
     internal static void RefReturnAndRefLocals()
     {
-        WriteLine(Environment.NewLine + "RefRetAndRetLocals");
+        WriteFirstLineInSample("RefRetAndRetLocals");
         var sampleArray = new int[] { 1, 2, 3, 4 };
 
         // ref local
@@ -26,7 +26,7 @@ internal static partial class V7
 
     public static void RefReturnForIndexer()
     {
-        WriteLine(Environment.NewLine + "RefReturnForIndexer");
+        WriteFirstLineInSample("RefReturnForIndexer");
 
         var setGetIndexerStruct = new SetGetIndexerStruct();
         setGetIndexerStruct[0] = 1;

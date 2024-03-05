@@ -4,7 +4,7 @@ internal static partial class V72
 {
     internal static void ReadOnlyParametersAndStructs()
     {
-        WriteLine();
+        WriteFirstLineInSample("Read only parameters and structs");
 
         var mutableStruct = new MutableStruct()
         {

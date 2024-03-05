@@ -4,7 +4,7 @@ internal static partial class V72
 {
     internal static void RefStructs()
     {
-        WriteLine();
+        WriteFirstLineInSample("Ref structs");
 
         // local variable, on the stack - all good
         var refStructLocalVar = new RefStruct();
