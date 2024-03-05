@@ -28,7 +28,7 @@ internal static partial class V72
         //structValue = new SampleStruct(); // not allowed
         //structValue.a = 5; // not allowed
 
-        // invoking methods is allowed, but results with defensive copy of struct
+        // invoking methods is allowed, but results with defensive copy of the struct
         mutableStruct.IncrementA();
 
         // no defensive copy as state is not mutable

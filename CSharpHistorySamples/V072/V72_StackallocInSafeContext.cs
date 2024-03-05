@@ -13,5 +13,8 @@ internal static partial class V72
         Span<byte> array = arraySize > 512 * 1024 ?
             new byte[arraySize] :
             stackalloc byte[arraySize];
+
+        // initializers from c# 7.3
+        Span<byte> stackallocatedArray2 = stackalloc byte[] { 1, 2, 3, 4 };
     }
 }

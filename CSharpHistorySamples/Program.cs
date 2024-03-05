@@ -23,24 +23,27 @@ WriteLine("************************************ V7 (3.2017) ********************
 
 WriteLine("************************************ V7.1 (8.2017) ************************************");
 
-V71.PatternMatchingForGenericParameter(parameter: "lorem ipsum");
+//V71.PatternMatchingForGenericParameter(parameter: "lorem ipsum");
 
 WriteLine("************************************ V7.2 (11.2017) ************************************");
 
-V72.StackallocArraysInSafeContext(arraySize: 256);
-_ = new V72.DerivedFromBaseWithPrivateProtectedMember();
-V72.ReadOnlyParametersAndStructs();
-V72.ReadOnlyRefReturns();
-V72.RefStructs();
+//V72.StackallocArraysInSafeContext(arraySize: 256);
+//_ = new V72.DerivedFromBaseWithPrivateProtectedMember();
+//V72.ReadOnlyParametersAndStructs();
+//V72.ReadOnlyRefReturns();
+//V72.RefStructs();
 
 WriteLine("************************************ V7.3 (5.2018) ************************************");
 WriteLine("(default for .net standard 2.0, core <3.x and .net framework)");
 
-WriteLine("************************************ V8 ************************************");
+//V73.NewGenericConstraints();
+//V73.TupleEquality();
+
+WriteLine("************************************ V8 (9.2019) ************************************");
 WriteLine("(default for .net standard 2.1, core 3.x)");
 
 //V8.PatternMatchingSwitchExpression();
-
+V8.ReadOnlyMembers();
 WriteLine("************************************ V9 ************************************");
 WriteLine("(default for .net 5.0)");
 
