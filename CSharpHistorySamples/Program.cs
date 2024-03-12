@@ -69,6 +69,9 @@ void V8Samples()
     V8.PatternMatchingSwitchExpression();
     V8.ReadOnlyMembers();
     V8.InterfaceDefaultMethodsImplementation();
+    V8.StaticLocalFunction();
+    V8.DisposableRefStruct();
+    V8.NullableReferenceType();
 }
 
 void V9Samples()

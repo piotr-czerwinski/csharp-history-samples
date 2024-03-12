@@ -63,7 +63,7 @@ internal static partial class V72
 
         internal int[] array;
 
-        // For ref structs it is common to contain other ref structs.
+        // For ref structs it is common to be composed with other ref structs.
         // non-ref structs cannot have ref struct fields
         internal Span<byte> span;
     }

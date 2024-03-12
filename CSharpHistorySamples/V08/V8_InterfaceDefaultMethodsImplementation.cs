@@ -5,6 +5,7 @@ internal static partial class V8
     // Main purpose is to avoid hidden copies when invoking struct methods 
     // more info:
     // https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-8.0/readonly-instance-members#design
+    // Not available in .NET framework
     internal static void InterfaceDefaultMethodsImplementation()
     {
         WriteFirstLineInSample("Interface default methods implementation");
