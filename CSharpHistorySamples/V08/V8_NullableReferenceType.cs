@@ -26,7 +26,8 @@ internal static partial class V8
 
         if (!string.IsNullOrWhiteSpace(somePerson.MiddleName))
         {
-            _ = somePerson.MiddleName.Substring(0); // no warning, compiler can detect null check (even though it is a method call)
+            // no warning, compiler can detect null check by attributes decorating IsNullOrWhiteSpace
+            _ = somePerson.MiddleName.Substring(0); 
         }
 
         if (somePerson.HasMiddleName())
@@ -47,9 +48,12 @@ internal static partial class V8
         {
             MiddleName = null
         };
+
         if (StringValueIsNotEmpty(otherPerson.MiddleName))
         {
-            _ = otherPerson.MiddleName.Substring(0); // no warning, StringValueIsNotEmpty parameter is marked with [NotNullWhen(true)]
+            // no warning, StringValueIsNotEmpty parameter attributed with [NotNullWhen(true)]
+            // similar to string.IsNullOrWhiteSpace
+            _ = otherPerson.MiddleName.Substring(0);
         }
     }
 
@@ -60,8 +64,8 @@ internal static partial class V8
 
     public static void ThrowsIfStringNull([NotNull] string? value) => ArgumentNullException.ThrowIfNull(value, nameof(value));
 
-
     public static bool StringValueIsNotEmpty([NotNullWhen(true)] string? value) => !string.IsNullOrWhiteSpace(value);
+
 
     internal static void HelperAttributes()
     {
@@ -97,7 +101,7 @@ internal static partial class V8
             set => _field = value ?? string.Empty;
         }
 
-        // Although property is nullable, with this attribute assigning null would result with warning
+        // Although property is nullable, with this attribute, assigning null would result with warning
         [DisallowNull]
         public string? DisallowNullNullableProperty
         {
@@ -107,7 +111,7 @@ internal static partial class V8
 
         private string _field = string.Empty;
 
-        // implementation may actually be less strict than interface (and allows returning nulls)
+        // implementation may be less strict than interface method declaration (and allows returning nulls)
         public string? MethodResultMaybeNull()
         {
             return _field;
