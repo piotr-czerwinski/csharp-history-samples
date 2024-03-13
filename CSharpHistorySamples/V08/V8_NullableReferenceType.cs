@@ -41,19 +41,24 @@ internal static partial class V8
             _ = somePerson.MiddleName!.Substring(0); // no warning - silenced
         }
 
+        somePerson = somePerson with
+        {
+            MiddleName = "middle name"
+        };
+
         ThrowsIfStringNull(somePerson.MiddleName);
         _ = somePerson.MiddleName.Substring(0); // no warning, as previous method would throw if null ([NotNull] with parameter)
 
-        var otherPerson = somePerson with
+        somePerson = somePerson with
         {
             MiddleName = null
         };
 
-        if (StringValueIsNotEmpty(otherPerson.MiddleName))
+        if (StringValueIsNotEmpty(somePerson.MiddleName))
         {
             // no warning, StringValueIsNotEmpty parameter attributed with [NotNullWhen(true)]
             // similar to string.IsNullOrWhiteSpace
-            _ = otherPerson.MiddleName.Substring(0);
+            _ = somePerson.MiddleName.Substring(0);
         }
     }
 
@@ -106,12 +111,12 @@ internal static partial class V8
         public string? DisallowNullNullableProperty
         {
             get => _field;
-            set => _field = value ?? throw new ArgumentNullException(nameof(value), "Cannot set to null");
+            set => _field = value;
         }
 
         private string _field = string.Empty;
 
-        // implementation may be less strict than interface method declaration (and allows returning nulls)
+        // Implementation may be less strict than interface method declaration (and allows returning nulls)
         public string? MethodResultMaybeNull()
         {
             return _field;

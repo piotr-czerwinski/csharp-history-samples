@@ -56,7 +56,7 @@ internal static partial class V8
             // generates compiler warning for hidden copy (might be resolved with adding readonly modifier to NoOp
             NoOp();
 
-            // even getter results with warning if not marked as readonly
+            // even calling getter results with warning, if not marked as readonly
             _ = AAccessor;
         }
 

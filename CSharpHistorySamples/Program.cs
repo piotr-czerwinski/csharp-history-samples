@@ -3,18 +3,20 @@ global using static CSharpHistorySamples.Helpers.ConsoleHelpers;
 
 using CSharpHistorySamples;
 
+#pragma warning disable CS8321 // Local function is declared but never used
+
 //await V6Samples();
 //V7Samples();
 //V7_1Samples();
 //V7_2Samples();
 //V7_3Samples();
-V8Samples();
+await V8Samples();
 //V9Samples();
 //V10Samples();
 //V11Samples();
 //V12Samples();
 
-async Task V6Samples()
+static async Task V6Samples()
 {
     WriteFirstLineInSample("************************************ V6 (2015) ************************************");
 
@@ -22,7 +24,7 @@ async Task V6Samples()
     await V6.MakeGetRequestWithExceptionFilters("https://localHost:666");
 }
 
-void V7Samples()
+static void V7Samples()
 {
     WriteFirstLineInSample("************************************ V7 (3.2017) ************************************");
 
@@ -34,14 +36,14 @@ void V7Samples()
     V7.PatternMatchingInSwitch();
 }
 
-void V7_1Samples()
+static void V7_1Samples()
 {
     WriteFirstLineInSample("************************************ V7.1 (8.2017) ************************************");
 
     V71.PatternMatchingForGenericParameter(parameter: "lorem ipsum");
 }
 
-void V7_2Samples()
+static void V7_2Samples()
 {
     WriteFirstLineInSample("************************************ V7.2 (11.2017) ************************************");
 
@@ -61,7 +63,7 @@ void V7_3Samples()
     V73.TupleEquality();
 }
 
-void V8Samples()
+static async Task V8Samples()
 {
     WriteFirstLineInSample("************************************ V8 (9.2019) ************************************");
     WriteLine("(default for .net standard 2.1, core 3.x)");
@@ -72,21 +74,22 @@ void V8Samples()
     V8.StaticLocalFunction();
     V8.DisposableRefStruct();
     V8.NullableReferenceType();
+    await V8.AsyncStreams();
 }
 
-void V9Samples()
+static void V9Samples()
 {
     WriteFirstLineInSample("************************************ V9 ************************************");
     WriteLine("(default for .net 5.0)");
 }
 
-void V10Samples()
+static void V10Samples()
 {
     WriteFirstLineInSample("************************************ V10 ************************************");
     WriteLine("(default for .net 6.0)");
 }
 
-void V11Samples()
+static void V11Samples()
 {
     WriteFirstLineInSample("************************************ V11 ************************************");
     WriteLine("(default for .net 7.0)");
@@ -94,7 +97,7 @@ void V11Samples()
     V11.PatternMatchingForSpans();
 }
 
-void V12Samples()
+static void V12Samples()
 {
     WriteFirstLineInSample("************************************ V12 ************************************");
     WriteLine("(default for .net 8.0)");
@@ -102,3 +105,4 @@ void V12Samples()
     V12.TupleAlias();
 }
 
+#pragma warning restore CS8321

@@ -11,9 +11,10 @@ internal static partial class V8
 
     private ref struct RefStructWithDispose// : IDisposable <- ref structs cannot implement any interface (C# 7.2 ref structs)
     {
-        public void Dispose()
+#pragma warning disable CA1822 // Mark members as static <- Compiler does not match proper shape if method was static
+        public readonly void Dispose()
         {
-            throw new NotImplementedException();
         }
+#pragma warning restore CA1822
     }
 }
