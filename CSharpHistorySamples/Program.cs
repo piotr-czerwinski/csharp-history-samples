@@ -75,6 +75,9 @@ static async Task V8Samples()
     V8.DisposableRefStruct();
     V8.NullableReferenceType();
     await V8.AsyncStreams();
+    V8.RangesAndIndices();
+    V8.UnmanagedConstructedType();
+    V8.StackallocInNestedContext();
 }
 
 static void V9Samples()

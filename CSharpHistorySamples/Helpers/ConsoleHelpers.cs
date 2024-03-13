@@ -8,4 +8,9 @@ internal static class ConsoleHelpers
         WriteLine(text);
         ResetColor();
     }
+
+    internal static void WriteLineWithParams(string text, params string[] stringValues)
+    {
+        WriteLine($"{text}: {string.Join(',', stringValues)}");
+    }
 }

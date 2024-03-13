@@ -33,7 +33,7 @@ internal static partial class V8
     private async static Task AsyncStream()
     {
         var tokenSource = new CancellationTokenSource();
-        await foreach (var iteration in GetAsyncEnumerable(5).WithCancellation(tokenSource.Token))
+        await foreach (var iteration in GetAsyncEnumerable(3).WithCancellation(tokenSource.Token))
         {
             WriteLine("Async Stream (IAsyncEnumerable), iteration: " + iteration);
         }
@@ -45,7 +45,7 @@ internal static partial class V8
          * More on it: https://learn.microsoft.com/en-us/archive/msdn-magazine/2019/november/csharp-iterating-with-async-enumerables-in-csharp-8#a-tour-through-async-enumerables
          */
 
-        await foreach (var iteration in new ClassWithAsyncEnumerableShape(5))
+        await foreach (var iteration in new ClassWithAsyncEnumerableShape(3))
         {
             WriteLine("Async Stream (proper shape), iteration: " + iteration);
         }
