@@ -2,6 +2,7 @@
 global using static CSharpHistorySamples.Helpers.ConsoleHelpers;
 
 using CSharpHistorySamples;
+using CSharpHistorySamples.V09;
 
 #pragma warning disable CS8321 // Local function is declared but never used
 
@@ -10,8 +11,8 @@ using CSharpHistorySamples;
 //V7_1Samples();
 //V7_2Samples();
 //V7_3Samples();
-await V8Samples();
-//V9Samples();
+//await V8Samples();
+V9Samples();
 //V10Samples();
 //V11Samples();
 //V12Samples();
@@ -84,6 +85,9 @@ static void V9Samples()
 {
     WriteFirstLineInSample("************************************ V9 ************************************");
     WriteLine("(default for .net 5.0)");
+
+    V9.Records();
+    V9.InitOnlyProperties();
 }
 
 static void V10Samples()
