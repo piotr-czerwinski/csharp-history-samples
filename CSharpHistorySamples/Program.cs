@@ -88,6 +88,11 @@ static void V9Samples()
 
     V9.Records();
     V9.InitOnlyProperties();
+    V9.PatternMatchingImprovements();
+    V9.PerfAndCompatibilityImprovements();
+    V9.PartialMethods();
+    V9.LocalAndAnonymousFunctionsEnhancements();
+    V9.CovariantReturnTypes();
 }
 
 static void V10Samples()
