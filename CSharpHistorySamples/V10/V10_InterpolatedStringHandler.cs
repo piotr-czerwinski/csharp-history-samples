@@ -49,14 +49,19 @@ internal static partial class V10
                 return;
             }
 
-            WriteLine(builder.GetFormattedText());
+            WriteLine(builder.ToStringAndClear());
         }
 
 #pragma warning disable IDE0060 // Remove unused parameter (it is used by the compiler)
         public void LogMessageOverrideEnabled(bool loggingEnabledOverride, [InterpolatedStringHandlerArgument("loggingEnabledOverride")] LoggerInterpolatedStringHandler builder)
 #pragma warning restore IDE0060 // Remove unused parameter
         {
-            WriteLine(builder.GetFormattedText());
+            if (!LoggingEnabled)
+            {
+                return;
+            }
+
+            WriteLine(builder.ToStringAndClear());
         }
 
         // required for non-interpolated (standard) strings
@@ -74,66 +79,45 @@ internal static partial class V10
     [InterpolatedStringHandler] // attribute required
     public ref struct LoggerInterpolatedStringHandler
     {
-        StringBuilder? builder;
-        private bool _loggingEnabled;
+        private DefaultInterpolatedStringHandler _builder;
 
-        public LoggerInterpolatedStringHandler(int literalLength, int formattedCount, SimpleLogger logger)
+        public LoggerInterpolatedStringHandler(int literalLength, int formattedCount, SimpleLogger logger, out bool handlerIsValid)
         {
-            _loggingEnabled = logger.LoggingEnabled;
-            InitializeHandler(literalLength, formattedCount);
+            handlerIsValid = logger.LoggingEnabled;
+            InitializeHandler(literalLength, formattedCount, handlerIsValid);
         }
 
-        public LoggerInterpolatedStringHandler(int literalLength, int formattedCount, bool loggingEnabled)
+        public LoggerInterpolatedStringHandler(int literalLength, int formattedCount, bool loggingEnabled, out bool handlerIsValid)
         {
-            _loggingEnabled = loggingEnabled;
-            InitializeHandler(literalLength, formattedCount);
+            handlerIsValid = loggingEnabled;
+            InitializeHandler(literalLength, formattedCount, handlerIsValid);
         }
 
         // proper class shape required (Methods with matching signatures)
         public void AppendLiteral(string s)
         {
-            if (!_loggingEnabled)
-            {
-                return;
-            }
-
             WriteLine($"Interpolated string handler: AppendLiteral, s: {s}");
-            builder!.Append(s);
+            _builder.AppendLiteral(s);
         }
 
         public void AppendFormatted<T>(T t)
         {
-            if (!_loggingEnabled)
-            {
-                return;
-            }
-
             WriteLine($"Interpolated string handler: AppendFormatted, t: {t} of type {typeof(T)}");
-            builder!.Append(t?.ToString());
+            _builder.AppendFormatted(t?.ToString());
         }
 
         // optional
         public void AppendFormatted<T>(T t, string format) where T : IFormattable
         {
-            if (!_loggingEnabled)
-            {
-                return;
-            }
-
             WriteLine($"Interpolated string handler: AppendFormatted, t: {t} with format {format} of type {typeof(T)}");
-            builder!.Append(t?.ToString(format, null));
+            _builder.AppendFormatted(t?.ToString(), format: format);
         }
 
-        private void InitializeHandler(int literalLength, int formattedCount)
+        private void InitializeHandler(int literalLength, int formattedCount, bool loggingEnabled)
         {
-            WriteLine($"Interpolated string handler: Constructor, literalLength: {literalLength}, formattedCount: {formattedCount}, logging enabled: {_loggingEnabled}");
-
-            if (_loggingEnabled)
-            {
-                builder = new StringBuilder(literalLength);
-            }
+            WriteLine($"Interpolated string handler: Constructor, literalLength: {literalLength}, formattedCount: {formattedCount}, logging enabled: {loggingEnabled}");
+            _builder = new DefaultInterpolatedStringHandler(literalLength, formattedCount);
         }
-
-        internal string GetFormattedText() => builder.ToString();
+        public string ToStringAndClear() => _builder.ToStringAndClear();
     }
 }
