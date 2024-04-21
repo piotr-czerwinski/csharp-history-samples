@@ -103,6 +103,7 @@ static void V10Samples()
 
     V10.RecordStructs();
     V10.StructImprovements();
+    V10.InterpolatedStringHandler();
 }
 
 static void V11Samples()

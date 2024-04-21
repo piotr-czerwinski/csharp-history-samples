@@ -6,7 +6,6 @@ namespace CSharpHistorySamples;
 internal static partial class V10
 {
     internal static void RecordStructs()
-
     {
         WriteFirstLineInSample("Record structs");
         var recordStruct1 = new RecordStruct(1, 2);
