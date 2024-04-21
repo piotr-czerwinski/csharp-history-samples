@@ -1,4 +1,5 @@
-﻿global using static System.Console;
+﻿// global usings - introduced in C# 10
+global using static System.Console;
 global using static CSharpHistorySamples.Helpers.ConsoleHelpers;
 
 using CSharpHistorySamples;
@@ -12,8 +13,8 @@ using CSharpHistorySamples.V09;
 //V7_2Samples();
 //V7_3Samples();
 //await V8Samples();
-V9Samples();
-//V10Samples();
+//V9Samples();
+V10Samples();
 //V11Samples();
 //V12Samples();
 
@@ -99,6 +100,9 @@ static void V10Samples()
 {
     WriteFirstLineInSample("************************************ V10 ************************************");
     WriteLine("(default for .net 6.0)");
+
+    V10.RecordStructs();
+    V10.StructImprovements();
 }
 
 static void V11Samples()
