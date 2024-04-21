@@ -81,7 +81,7 @@ internal static partial class V8
         testClass.DisallowNullNullableProperty = null; // warning, as attributed with [DisallowNull]
 
         SomeInterface<string> testClassAsInterface = testClass;
-        string _ = testClassAsInterface.MethodResultMaybeNull(); // warning, interface method is attributed with [MaybeNull[
+        string _ = testClassAsInterface.MethodResultMaybeNull(); // warning, interface method is attributed with [MaybeNull]
     }
 
     private interface SomeInterface<T>

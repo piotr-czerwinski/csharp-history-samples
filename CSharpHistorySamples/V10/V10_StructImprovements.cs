@@ -7,6 +7,8 @@ internal static partial class V10
 {
     internal static void StructImprovements()
     {
+        WriteFirstLineInSample("Record structs");
+
         WriteFirstLineInSample("Structs Improvements");
         ParameterLessConstructor();
         WithExpressionForStructs();

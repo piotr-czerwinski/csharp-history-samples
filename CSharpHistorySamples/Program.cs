@@ -104,6 +104,9 @@ static void V10Samples()
     V10.RecordStructs();
     V10.StructImprovements();
     V10.InterpolatedStringHandler();
+    V10.PropertyPatternImprovement();
+    V10.LambdaExpressionImprovements();
+    V10.ArgumentExpression();
 }
 
 static void V11Samples()
