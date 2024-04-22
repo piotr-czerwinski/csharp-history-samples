@@ -119,6 +119,7 @@ static void V11Samples()
     V11.StaticVirtualMembersForInterfaces();
     V11.GenericAttributes();
     V11.RequiredMembers();
+    V11.ListPatterns();
 }
 
 static void V12Samples()
