@@ -118,6 +118,7 @@ static void V11Samples()
     V11.StringLiteralsAndInterpolation();
     V11.StaticVirtualMembersForInterfaces();
     V11.GenericAttributes();
+    V11.RequiredMembers();
 }
 
 static void V12Samples()
