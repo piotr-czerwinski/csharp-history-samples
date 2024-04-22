@@ -15,11 +15,18 @@ internal static partial class V11
 
     private static void UTF8StringLiterals()
     {
-        WriteFirstLineInSample("UTF8 String literals");
+        WriteFirstLineInSample("UTF-8 String literals");
 
-        // type of UTF8 string literals is ReadOnlyString<byte> (NOT string)
+        // type of UTF-8 string literals is ReadOnlySpan<byte> (NOT string)
         var utfStringLiteral = "Sample literal string U8"u8;
         WriteLine(utfStringLiteral.ToString());
+
+        // interpolated u8 not supported
+        // var s2 = $"Sample interpolated literal string UTF-8"u8;
+
+        // is not compile type literal.
+        // cannot be used as a method param
+         //void MethodWithUtf8Param(ReadOnlySpan<byte> param = ""u8) { }
     }
 
     private static void RawStrings()
