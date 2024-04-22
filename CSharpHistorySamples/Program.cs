@@ -124,6 +124,7 @@ static void V11Samples()
     V11.NameofScope();
     V11.FileScopedClass();
     V11.FileScopedClass2();
+    V11.AutoDefaultStructs();
 }
 
 static void V12Samples()
