@@ -117,6 +117,7 @@ static void V11Samples()
     V11.PatternMatchingForSpans();
     V11.StringLiteralsAndInterpolation();
     V11.StaticVirtualMembersForInterfaces();
+    V11.GenericAttributes();
 }
 
 static void V12Samples()
