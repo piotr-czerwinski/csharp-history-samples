@@ -40,13 +40,20 @@ internal static partial class V11
                     Indentation";
         WriteLine(multilineString);
 
-        // white spaces right after and before """ are ignored. String is also adjusted to the "left"
+        // At least 3 double-quotes chars required to use raw literals
+        // White spaces right after starting and before ending """ are ignored.
+        // String is aligned to the closing delimiter.
         string multilineRawString = """
                 Multiline string literals.                  
                 With "quoted text". 
                     Indentation   
                 """;
         WriteLine(multilineRawString);
+
+        // When more than 2 double-quotes are to be used inside the string (let say x).
+        // The solution is to use x + 1 double-quotes as a delimiter
+        string multipleDoubleQuotes = """""start """ inside quotes """" end""""";
+        WriteLine(multipleDoubleQuotes);
 
         // for interpolated strings number of '$' corresponds to number of opening braces 
         string multilineString2 = $"""
