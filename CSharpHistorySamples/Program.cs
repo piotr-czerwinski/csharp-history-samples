@@ -14,8 +14,8 @@ using CSharpHistorySamples.V09;
 //V7_3Samples();
 //await V8Samples();
 //V9Samples();
-V10Samples();
-//V11Samples();
+//V10Samples();
+V11Samples();
 //V12Samples();
 
 static async Task V6Samples()
@@ -115,6 +115,8 @@ static void V11Samples()
     WriteLine("(default for .net 7.0)");
 
     V11.PatternMatchingForSpans();
+    V11.StringLiteralsAndInterpolation();
+    V11.StaticVirtualMembersForInterfaces();
 }
 
 static void V12Samples()
