@@ -7,29 +7,38 @@ internal static partial class V11
 {
 
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
-    public class GenericAtrAttribute<T> : Attribute
+    public class GenericAttribute<T> : Attribute
+    {
+    }
+
+    public class GenericAttributeForEnum<T> : Attribute
+        where T : Enum
     {
     }
 
     internal static void GenericAttributes()
     {
-        [GenericAtr<string>]
+        [GenericAttribute<string>]
         void M1() { };
 
-        [GenericAtr<int>]
+        [GenericAttribute<int>]
         void M2() { };
 
         // Forbidden usage:
 
         // [GenericAtr<dynamic>]
-        [GenericAtr<object>] // as the valid solution
+        [GenericAttribute<object>] // as the valid solution
 
         // [GenericAtr<(int x, int y)>]
-        [GenericAtr<ValueTuple<int, int>>] // as the valid solution
+        [GenericAttribute<ValueTuple<int, int>>] // as the valid solution
 
         // [GenericAtr<int?>] // nullable
-        [GenericAtr<int>] // as the valid solution
+        [GenericAttribute<int>] // as the valid solution
         void M3() { };
+
+        [GenericAttributeForEnum<FileAccess>]
+        // [GenericAttributeForEnum<int>] // not valid as int is not Enum
+        void M4() { };
     }
 
     // [GenericAtr<T>] attribute must be of constructed type to be used like GenericAtr<int> (not generic)

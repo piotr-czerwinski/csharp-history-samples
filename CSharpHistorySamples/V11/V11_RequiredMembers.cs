@@ -29,7 +29,7 @@ internal static partial class V11
     // Property must be set as error states:
     // Required member 'V11.SampleAttribute.RequiredProp' must be set in the object initializer or attribute constructor
     // [SampleAtr]
-    [SampleAtr(RequiredProp = "")]
+    [SampleAttribute(RequiredProp = "")]
     private class Person()
     {
         // When not marked as required, it would be possible to construct object with no value set
@@ -41,7 +41,7 @@ internal static partial class V11
         public required string LastName { get; init; }
     }
 
-    private class SampleAtrAttribute : Attribute
+    private class SampleAttribute : Attribute
     {
         public required string RequiredProp
         {
