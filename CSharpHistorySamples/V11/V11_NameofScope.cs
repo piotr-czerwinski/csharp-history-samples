@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Runtime.CompilerServices;
+﻿using System.Runtime.CompilerServices;
 
 namespace CSharpHistorySamples;
 
@@ -9,7 +8,7 @@ internal static partial class V11
     {
     }
 
-    [Name(nameof(value)] // instead of [Name("value")]
+    [Name(nameof(value))] // instead of [Name("value")]
     public static int SampleExtensionMethod<T>(
         this int value,
         //[CallerArgumentExpression("value")] // before C# 11
