@@ -120,6 +120,8 @@ static void V11Samples()
     V11.GenericAttributes();
     V11.RequiredMembers();
     V11.ListPatterns();
+    V11.CheckedOperators();
+    V11.NameofScope();
 }
 
 static void V12Samples()

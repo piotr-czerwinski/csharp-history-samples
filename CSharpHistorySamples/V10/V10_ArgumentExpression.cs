@@ -31,8 +31,10 @@ internal static partial class V10
         };
     }
 
-    public static IEnumerable<T> TakeExact<T>(this IEnumerable<T> sequence, int count,
-        [CallerArgumentExpression(nameof(sequence))] string? message = null)
+    public static IEnumerable<T> TakeExact<T>(
+        this IEnumerable<T> sequence,
+        int count,
+        [CallerArgumentExpression("sequence")] string? message = null)
     {
         if (sequence.Count() < count)
         {
