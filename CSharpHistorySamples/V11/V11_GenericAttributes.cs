@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using static CSharpHistorySamples.V11;
-
-namespace CSharpHistorySamples;
+﻿namespace CSharpHistorySamples;
 
 internal static partial class V11
 {

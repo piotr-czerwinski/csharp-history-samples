@@ -1,6 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-
-namespace CSharpHistorySamples.V09;
+﻿namespace CSharpHistorySamples.V09;
 
 internal static partial class V9
 {

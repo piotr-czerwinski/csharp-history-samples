@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Diagnostics.CodeAnalysis;
-using System.Numerics;
-
-namespace CSharpHistorySamples;
+﻿namespace CSharpHistorySamples;
 
 internal static partial class V11
 {

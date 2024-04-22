@@ -1,6 +1,4 @@
-﻿using System.Linq.Expressions;
-
-namespace CSharpHistorySamples;
+﻿namespace CSharpHistorySamples;
 
 internal static partial class V73
 {

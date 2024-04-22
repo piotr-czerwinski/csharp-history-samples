@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Text.Json.Serialization;
+﻿using System.Runtime.CompilerServices;
 
 namespace CSharpHistorySamples;
 

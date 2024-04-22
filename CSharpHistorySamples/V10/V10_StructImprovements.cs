@@ -1,7 +1,4 @@
-﻿using System.Text;
-using System.Text.Json.Serialization;
-
-namespace CSharpHistorySamples;
+﻿namespace CSharpHistorySamples;
 
 internal static partial class V10
 {

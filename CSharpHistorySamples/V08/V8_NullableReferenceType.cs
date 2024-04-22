@@ -1,6 +1,4 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
-using System.Xml.Linq;
+﻿using System.Diagnostics.CodeAnalysis;
 
 namespace CSharpHistorySamples;
 
