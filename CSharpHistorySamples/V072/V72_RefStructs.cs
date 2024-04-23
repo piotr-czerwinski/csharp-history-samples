@@ -55,7 +55,7 @@ internal static partial class V72
         return Task.FromResult(true);
     }
 
-    // Ref structs always allocated on the stack. It was added firstly to supports Spans.
+    // Ref structs always allocated on the stack. It was added initially to supports Spans.
     // Compilers ensures, that those structs are never allocated or moved to the managed heap.
     private ref struct RefStruct // : ICloneable - cannot implement interfaces
     {
