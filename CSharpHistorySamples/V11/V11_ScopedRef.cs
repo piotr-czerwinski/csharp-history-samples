@@ -10,7 +10,7 @@ internal static partial class V11
     internal static void ScopedRef()
     {
         ScopedParam();
-        ScopedLocal();
+        ScopedLocal(spanLength: 10, maxStackLength: 1024);
     }
 
     private static void ScopedParam()

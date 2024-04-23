@@ -126,6 +126,7 @@ static void V11Samples()
     V11.FileScopedClass2();
     V11.AutoDefaultStructs();
     V11.RefFields();
+    V11.ScopedRef();
 }
 
 static void V12Samples()
