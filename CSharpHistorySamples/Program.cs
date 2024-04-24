@@ -142,6 +142,7 @@ static void V12Samples()
     V12.InlineArrays();
     V12.RefReadOnlyParams();
     V12.DefaultLambdaParameters();
+    V12.ExperimentalAttribute();
 }
 
 #pragma warning restore CS8321
