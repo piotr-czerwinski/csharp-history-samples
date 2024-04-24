@@ -143,6 +143,7 @@ static void V12Samples()
     V12.RefReadOnlyParams();
     V12.DefaultLambdaParameters();
     V12.ExperimentalAttribute();
+    V12.Interceptors();
 }
 
 #pragma warning restore CS8321
