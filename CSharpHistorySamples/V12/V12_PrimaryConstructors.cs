@@ -5,24 +5,16 @@ internal partial class V12
     internal static void PrimaryConstructors()
     {
         // Before C# 12 primary constructors were available for records only
-        // In C# 12 class and structs also supports primary constructors, but with different behaviour
+        // In C# 12 class and structs also supports primary constructors with different behaviour
         WriteFirstLineInSample("Primary Constructors");
 
+        PrimaryConstructorsForStructs();
+        PrimaryConstructorForClasses();
+    }
 
-        _ = new Point(1, 2);
-        var point = new Point(X: 1);
-        WriteLine($"Point values: {point}");
-
-        // point.X = 2; // not public
-        point.IncrementX();
-        WriteLine($"Point values after incrementation: {point}");
-
-
-        var pointReadonlyProps = new PointReadonlyProps(0, 1);
-        WriteLine($"Point values (readonly props): {point}");
-        pointReadonlyProps.IncrementX();
-        WriteLine($"Point values (readonly props) after incrementation: {point}");
-
+    private static void PrimaryConstructorsForStructs()
+    {
+        WriteFirstLineInSample("Primary Constructors: Structs");
         _ = new PointStruct(1, 2);
 
         // Primary constructor not called, when initialized as default or an array element
@@ -32,6 +24,28 @@ internal partial class V12
         var pointStructsArray = new PointStruct[1];
         WriteLine($"PointStruct values (new PointStruct[1]): {pointStructsArray[0]}");
     }
+
+    private static void PrimaryConstructorForClasses()
+    {
+        WriteFirstLineInSample("Primary Constructors: Classes");
+
+        _ = new Point(1, 2);
+        var point = new Point(X: 1);
+        WriteLine($"Point values: {point}");
+
+        // point.X = 2; // not public
+        point.IncrementX();
+        WriteLine($"Point values after incrementation: {point}"); 
+        
+        var pointReadonlyProps = new PointReadonlyProps(0, 1);
+        WriteLine($"Point values (readonly props): {point}");
+        pointReadonlyProps.IncrementX();
+        WriteLine($"Point values (readonly props) after incrementation: {point}");
+    }
+}
+file struct PointStruct(int X, int Y = 1)
+{
+    public override readonly string? ToString() => $"X: {X}, Y: {Y}";
 }
 
 file class Point(int X, int Y = 0)
@@ -56,8 +70,13 @@ file class PointReadonlyProps(int x, int y)
 
     public void IncrementX()
     {
-        /* this does not change backing field of X property!
-         * Generated code
+        // This does NOT change backing field of the X property!
+        // Also warning:  Parameter 'int x' is captured into the state of the enclosing type
+        // and its value is also used to initialize a field, property, or event.
+        x++;
+
+        /* Generated code
+         * 
             private int <x>P;
             private readonly int <X>k__BackingField;
 
@@ -68,6 +87,8 @@ file class PointReadonlyProps(int x, int y)
                     return <X>k__BackingField;
                 }
             }
+
+            (...)
 
             public PointReadonly(int x, int y)
             {
@@ -82,11 +103,5 @@ file class PointReadonlyProps(int x, int y)
                 <x>P++;
             }
         */
-        x++;
     }
-}
-
-file struct PointStruct(int X, int Y = 1)
-{
-    public override readonly string? ToString() => $"X: {X}, Y: {Y}";
 }
