@@ -138,6 +138,7 @@ static void V12Samples()
     V12.PrimaryConstructors();
     V12.CollectionExpressions();
     V12.InlineArrays();
+    V12.RefReadOnlyParams();
 }
 
 #pragma warning restore CS8321
