@@ -136,6 +136,7 @@ static void V12Samples()
 
     V12.TupleAlias();
     V12.PrimaryConstructors();
+    V12.CollectionExpressions();
 }
 
 #pragma warning restore CS8321

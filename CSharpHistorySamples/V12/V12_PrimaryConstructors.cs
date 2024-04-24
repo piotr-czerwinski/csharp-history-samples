@@ -57,7 +57,7 @@ file class Point(int X, int Y = 0)
 
     public void IncrementX()
     {
-        X++; // in contrast to the record - fields are not readonly
+        X++; // in contrast to the record - properties are not readonly
     }
 
     public override string? ToString() => $"X: {X}, Y: {Y}";
