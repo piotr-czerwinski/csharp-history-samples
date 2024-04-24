@@ -23,6 +23,9 @@ csharp_style_expression_bodied_local_functions = false:silent
 csharp_space_around_binary_operators = before_and_after
 csharp_preserve_single_line_blocks = false
 
+# CS8321: Local function is declared but never used
+dotnet_diagnostic.CS8321.severity = silent
+
 [*.{cs,vb}]
 #### Naming styles ####
 

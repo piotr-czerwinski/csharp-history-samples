@@ -66,6 +66,7 @@ file class Point(int X, int Y = 0)
 file class PointReadonlyProps(int x, int y)
 {
     public int X { get; } = x;
+
     public int Y { get; } = y;
 
     public void IncrementX()
