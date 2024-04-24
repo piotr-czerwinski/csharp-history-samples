@@ -7,6 +7,8 @@ using CSharpHistorySamples.V09;
 
 #pragma warning disable CS8321 // Local function is declared but never used
 
+// TODO: create seperate projects for each version
+
 //await V6Samples();
 //V7Samples();
 //V7_1Samples();
@@ -139,6 +141,7 @@ static void V12Samples()
     V12.CollectionExpressions();
     V12.InlineArrays();
     V12.RefReadOnlyParams();
+    V12.DefaultLambdaParameters();
 }
 
 #pragma warning restore CS8321
