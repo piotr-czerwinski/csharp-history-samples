@@ -15,8 +15,8 @@ using CSharpHistorySamples.V09;
 //await V8Samples();
 //V9Samples();
 //V10Samples();
-V11Samples();
-//V12Samples();
+//V11Samples();
+V12Samples();
 
 static async Task V6Samples()
 {
@@ -135,6 +135,7 @@ static void V12Samples()
     WriteLine("(default for .net 8.0)");
 
     V12.TupleAlias();
+    V12.PrimaryConstructors();
 }
 
 #pragma warning restore CS8321
