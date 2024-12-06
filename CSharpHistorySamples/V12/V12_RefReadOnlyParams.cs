@@ -1,7 +1,4 @@
-﻿using System;
-using System.Reflection.Metadata;
-
-namespace CSharpHistorySamples;
+﻿namespace CSharpHistorySamples;
 
 internal partial class V12
 {
