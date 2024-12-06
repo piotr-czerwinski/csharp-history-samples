@@ -18,7 +18,8 @@ using CSharpHistorySamples.V09;
 //V9Samples();
 //V10Samples();
 //V11Samples();
-V12Samples();
+//V12Samples();
+V13Samples();
 
 static async Task V6Samples()
 {
@@ -144,6 +145,14 @@ static void V12Samples()
     V12.DefaultLambdaParameters();
     V12.ExperimentalAttribute();
     V12.Interceptors();
+}
+
+static void V13Samples()
+{
+    WriteFirstLineInSample("************************************ V13 ************************************");
+    WriteLine("(default for .net 9.0)");
+
+    V13.ParamsCollection();
 }
 
 #pragma warning restore CS8321

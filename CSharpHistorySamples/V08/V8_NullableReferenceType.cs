@@ -30,7 +30,7 @@ internal static partial class V8
 
         if (somePerson.HasMiddleName())
         {
-            _ = somePerson.MiddleName.Substring(0); // warning, compiler not smart enough to analyse content of custom method
+            _ = somePerson.MiddleName.Substring(0); // warning, compiler not smart enough to analyse the content of custom method
             _ = somePerson.MiddleName.Substring(0); // no warning. If we got here it means previous line did not throw
         }
 
