@@ -1,4 +1,4 @@
-﻿namespace CSharpHistorySamples.V09;
+﻿namespace CSharpHistorySamples;
 
 internal static partial class V9
 {
