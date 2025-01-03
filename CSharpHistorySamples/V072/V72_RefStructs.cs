@@ -57,7 +57,9 @@ internal static partial class V72
 
     // Ref structs always allocated on the stack. It was added initially to supports Spans.
     // Compilers ensures, that those structs are never allocated or moved to the managed heap.
-    private ref struct RefStruct // : ICloneable - cannot implement interfaces
+    private ref struct RefStruct // : ICloneable - cannot implement interface
+                                 // (until C# 13 at all, and even in C# 13 ICloneable could not be implemented,
+                                 // as Clone method returns object and such boxing is not allowed)
     {
         internal int property;
 

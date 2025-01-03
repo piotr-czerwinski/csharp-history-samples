@@ -155,6 +155,7 @@ static async Task V13Samples()
     V13.ParamsCollection();
     V13.LockObject();
     await V13.RefAndUnsafeNewAllowedUseCases();
+    V13.RefStructInterfaces();
 }
 
 #pragma warning restore CS8321
