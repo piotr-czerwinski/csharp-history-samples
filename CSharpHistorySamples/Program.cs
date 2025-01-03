@@ -3,7 +3,6 @@ global using static System.Console;
 global using static CSharpHistorySamples.Helpers.ConsoleHelpers;
 
 using CSharpHistorySamples;
-using CSharpHistorySamples.V09;
 
 #pragma warning disable CS8321 // Local function is declared but never used
 
@@ -156,6 +155,7 @@ static async Task V13Samples()
     V13.LockObject();
     await V13.RefAndUnsafeNewAllowedUseCases();
     V13.RefStructInterfaces();
+    V13.PartialPropertiesAndIndexers();
 }
 
 #pragma warning restore CS8321
