@@ -4,8 +4,9 @@ namespace CSharpHistorySamples;
 
 internal static class SampleRunner
 {
-    public static RootCommand BuildCommandLine(
-        IEnumerable<(string token, Delegate handler)> allSamples
+    public static ParseResult ParseCommandLineArgs(
+        IEnumerable<(string token, Delegate handler)> allSamples,
+        string[] args
         )
     {
         Dictionary<string, Option<bool>>  options = [];
@@ -14,11 +15,17 @@ internal static class SampleRunner
             var aliases = token.Contains('.')
                 ? new[] { $"-{token}", $"--{token}", $"-{token.Replace(".", "_")}", $"--{token.Replace(".", "_")}" }
                 : [$"-{token}", $"--{token}"];
-            var option = new Option<bool>(aliases, $"Run C# {token} samples");
+            var option = new Option<bool>($"{token}", aliases)
+            {
+                Description = $"Run C# {token} samples"
+            };
             options[token] = option;
         }
 
-        var allOption = new Option<bool>(["-all", "--all"], "Run all C# version samples");
+        var allOption = new Option<bool>("all", ["-all", "--all"])
+        {
+            Description = "Run all C# version samples"
+        };
 
         var rootCommand = new RootCommand("CSharp History Samples - Run C# version feature examples");
         foreach (var option in options.Values)
@@ -27,9 +34,9 @@ internal static class SampleRunner
         }
         rootCommand.Add(allOption);
 
-        rootCommand.SetHandler(async (context) =>
+        rootCommand.SetAction(async (context) =>
         {
-            var all = context.ParseResult.GetValueForOption(allOption);
+            var all = context.CommandResult.GetValue(allOption);
             var selectedSamples = new List<(string token, Delegate handler)>();
 
             if (all)
@@ -40,7 +47,7 @@ internal static class SampleRunner
             {
                 foreach (var (token, handler) in allSamples)
                 {
-                    if (context.ParseResult.GetValueForOption(options[token]))
+                    if (context.CommandResult.GetValue(options[token]))
                     {
                         selectedSamples.Add((token, handler));
                     }
@@ -55,7 +62,7 @@ internal static class SampleRunner
             await RunAsync(allSamples, selectedSamples);
         });
 
-        return rootCommand;
+        return rootCommand.Parse(args); ;
     }
 
     public static async Task RunAsync(

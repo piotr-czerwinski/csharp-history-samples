@@ -164,7 +164,7 @@ var allSamples = new (string token, Delegate handler)[]
 {
     ("v6", V6Samples),
     ("v7", V7Samples),
-    ("V7.1", V7_1Samples),
+    ("v7.1", V7_1Samples),
     ("v7.2", V7_2Samples),
     ("v7.3", V7_3Samples),
     ("v8", V8Samples),
@@ -176,5 +176,6 @@ var allSamples = new (string token, Delegate handler)[]
     ("v14", V14Samples),
 };
 
-var rootCommand = SampleRunner.BuildCommandLine(allSamples);
-await rootCommand.InvokeAsync(args);
+var parsingResult = SampleRunner.ParseCommandLineArgs(allSamples, args);
+
+await parsingResult.InvokeAsync();

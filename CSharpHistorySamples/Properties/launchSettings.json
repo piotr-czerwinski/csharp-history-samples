@@ -4,6 +4,10 @@
       "commandName": "Project",
       "commandLineArgs": "-v6"
     },
+    "WSL": {
+      "commandName": "WSL2",
+      "distributionName": ""
+    },
     "V7": {
       "commandName": "Project",
       "commandLineArgs": "-v7"
