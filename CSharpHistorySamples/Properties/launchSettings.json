@@ -1,0 +1,56 @@
+{
+  "profiles": {
+    "V6": {
+      "commandName": "Project",
+      "commandLineArgs": "-v6"
+    },
+    "V7": {
+      "commandName": "Project",
+      "commandLineArgs": "-v7"
+    },
+    "V7.1": {
+      "commandName": "Project",
+      "commandLineArgs": "-v7.1"
+    },
+    "V7.2": {
+      "commandName": "Project",
+      "commandLineArgs": "-v7.2"
+    },
+    "V7.3": {
+      "commandName": "Project",
+      "commandLineArgs": "-v7.3"
+    },
+    "V8": {
+      "commandName": "Project",
+      "commandLineArgs": "-v8"
+    },
+    "V9": {
+      "commandName": "Project",
+      "commandLineArgs": "-v9"
+    },
+    "V10": {
+      "commandName": "Project",
+      "commandLineArgs": "-v10"
+    },
+    "V11": {
+      "commandName": "Project",
+      "commandLineArgs": "-v11"
+    },
+    "V12": {
+      "commandName": "Project",
+      "commandLineArgs": "-v12"
+    },
+    "V13": {
+      "commandName": "Project",
+      "commandLineArgs": "-v13"
+    },
+    "V14": {
+      "commandName": "Project",
+      "commandLineArgs": "-v14"
+    },
+    "RunAll": {
+      "commandName": "Project",
+      "commandLineArgs": "-all"
+    }
+  }
+}

@@ -1,30 +1,14 @@
-﻿// global usings - introduced in C# 10
+// global usings - introduced in C# 10
 global using static System.Console;
 global using static CSharpHistorySamples.Helpers.ConsoleHelpers;
 
+using System.CommandLine;
 using CSharpHistorySamples;
-
-#pragma warning disable CS8321 // Local function is declared but never used
-
-// TODO: create seperate projects for each version
-
-//await V6Samples();
-//V7Samples();
-//V7_1Samples();
-//V7_2Samples();
-//V7_3Samples();
-//await V8Samples();
-//V9Samples();
-//V10Samples();
-//V11Samples();
-//V12Samples();
-await V13Samples();
 
 static async Task V6Samples()
 {
     WriteFirstLineInSample("************************************ V6 (2015) ************************************");
 
-    // Exception and 'when' filtering 
     await V6.MakeGetRequestWithExceptionFilters("https://localHost:666");
 }
 
@@ -58,7 +42,7 @@ static void V7_2Samples()
     V72.RefStructs();
 }
 
-void V7_3Samples()
+static void V7_3Samples()
 {
     WriteFirstLineInSample("************************************ V7.3 (5.2018) ************************************");
     WriteLine("(default for .net standard 2.0, core <3.x and .net framework)");
@@ -158,4 +142,39 @@ static async Task V13Samples()
     V13.PartialPropertiesAndIndexers();
 }
 
-#pragma warning restore CS8321
+static async Task V14Samples()
+{
+    WriteFirstLineInSample("************************************ V14 ************************************");
+    WriteLine("(default for .net 10.0)");
+
+    V14.NameOfUnboundGenericExample();
+    V14.FieldBackedPropertyExample();
+    V14.NullConditionalAssignmentExample();
+    V14.LambdaModifiersExample();
+    V14.ImplicitSpanConversionsExample();
+    V14.ExtensionMembersExample();
+    V14.PartialConstructorsExample();
+    V14.PartialEventsExample();
+    V14.CompoundAssignmentExample();
+    await V14.AsyncFeature();
+    V14.PatternsAndImprovements();
+}
+
+var allSamples = new (string token, Delegate handler)[]
+{
+    ("v6", V6Samples),
+    ("v7", V7Samples),
+    ("V7.1", V7_1Samples),
+    ("v7.2", V7_2Samples),
+    ("v7.3", V7_3Samples),
+    ("v8", V8Samples),
+    ("v9", V9Samples),
+    ("v10", V10Samples),
+    ("v11", V11Samples),
+    ("v12", V12Samples),
+    ("v13", V13Samples),
+    ("v14", V14Samples),
+};
+
+var rootCommand = SampleRunner.BuildCommandLine(allSamples);
+await rootCommand.InvokeAsync(args);
