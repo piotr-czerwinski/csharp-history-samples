@@ -6,16 +6,11 @@ internal static partial class V14
     {
         WriteFirstLineInSample("extension members (instance and static)");
 
-        var arr = new[] { 1, 2, 3 };
-        WriteLine($"IsEmpty: {arr.IsEmpty()}");
+        var arr = new[] { 1, 2, 3, (int?)null };
+        WriteLine($"Not null count: {arr.NotNull().Count()}");
+        WriteLine($"Contains null: {arr.ContainsNull}");
 
-        var combined = arr.CombineWith(new[] { 4, 5 });
-        WriteLine($"Combined count: {combined.Count()} ");
-
-        var identity = EnumerableHelpers.Identity<int>();
-        WriteLine($"Identity is empty: {identity is not null}");
-
-        var sum = arr.ConcatWith(new[] { 4, 5 });
-        WriteLine($"Sum count: {sum.Count()} ");
+        var identity = List<int>.Identity;
+        WriteLine($"Identity is not null: {identity is not null}");
     }
 }
