@@ -8,7 +8,7 @@ internal partial class V13
 
         NewLockObjectLocking();
 
-        M(new Lock()); // could warn here
+        M(new Lock()); // warns, as would use Monitor locking
     }
 
     private static void NewLockObjectLocking()
@@ -39,7 +39,7 @@ internal partial class V13
     static void M(object x)
     {
         ArgumentNullException.ThrowIfNull(x);
-        lock (x) { } // because this uses Monitor
+        lock (x) { } // This uses Monitor
 
         /*
          * Compiles to:
