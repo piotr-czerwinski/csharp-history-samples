@@ -147,12 +147,13 @@ static async Task V14Samples()
     WriteFirstLineInSample("************************************ V14 ************************************");
     WriteLine("(default for .net 10.0)");
 
-    V14.NameOfUnboundGenericExample();
+    V14.ExtensionMembersExample();
     V14.FieldBackedPropertyExample();
+    V14.ImplicitSpanConversionsExample();
+
+    V14.NameOfUnboundGenericExample();
     V14.NullConditionalAssignmentExample();
     V14.LambdaModifiersExample();
-    V14.ImplicitSpanConversionsExample();
-    V14.ExtensionMembersExample();
     V14.PartialConstructorsExample();
     V14.PartialEventsExample();
     V14.CompoundAssignmentExample();
