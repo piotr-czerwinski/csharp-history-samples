@@ -14,7 +14,7 @@ internal static partial class V14
     {
         WriteFirstLineInSample("partial events demonstration");
 
-        var obj = new EventHolder();
+        var obj = new PartialType(42);
         obj.MyEvent += (s, e) => WriteLine("Event fired");
         obj.Raise();
     }
@@ -22,39 +22,34 @@ internal static partial class V14
 
 partial class PartialType
 {
-    public int Value { get; private set; }
+    // implementing defining declaration
+    public partial PartialType(int v);
 
-    // defining declaration
-    partial void Construct(int v);
-
-    public PartialType(int v)
-    {
-        Construct(v);
-    }
-}
-
-partial class PartialType
-{
-    // implementing declaration
-    partial void Construct(int v)
-    {
-        Value = v;
-    }
-}
-
-partial class EventHolder
-{
     // defining declaration - field-like event
     public partial event EventHandler? MyEvent;
 }
 
-partial class EventHolder
+partial class PartialType
 {
+    public int Value { get; private set; }
+
+    // implementing  declaration
+    public partial PartialType(int v)
+    {
+        Value = v;
+    }
+
     // implementing declaration - provide add/remove
     public partial event EventHandler? MyEvent
     {
-        add { _myEvent += value; }
-        remove { _myEvent -= value; }
+        add
+        {
+            _myEvent += value;
+        }
+        remove
+        {
+            _myEvent -= value;
+        }
     }
 
     private EventHandler? _myEvent;

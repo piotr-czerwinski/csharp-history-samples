@@ -1,8 +1,6 @@
 // global usings - introduced in C# 10
 global using static System.Console;
 global using static CSharpHistorySamples.Helpers.ConsoleHelpers;
-
-using System.CommandLine;
 using CSharpHistorySamples;
 
 static async Task V6Samples()
@@ -142,7 +140,7 @@ static async Task V13Samples()
     V13.PartialPropertiesAndIndexers();
 }
 
-static async Task V14Samples()
+static void V14Samples()
 {
     WriteFirstLineInSample("************************************ V14 ************************************");
     WriteLine("(default for .net 10.0)");
@@ -150,15 +148,12 @@ static async Task V14Samples()
     V14.ExtensionMembersExample();
     V14.FieldBackedPropertyExample();
     V14.ImplicitSpanConversionsExample();
-
     V14.NameOfUnboundGenericExample();
-    V14.NullConditionalAssignmentExample();
     V14.LambdaModifiersExample();
     V14.PartialConstructorsExample();
     V14.PartialEventsExample();
     V14.CompoundAssignmentExample();
-    await V14.AsyncFeature();
-    V14.PatternsAndImprovements();
+    V14.NullConditionalAssignmentExample();
 }
 
 var allSamples = new (string token, Delegate handler)[]

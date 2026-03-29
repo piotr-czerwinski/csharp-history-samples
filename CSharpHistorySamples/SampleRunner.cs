@@ -59,14 +59,13 @@ internal static class SampleRunner
                 }
             }
 
-            await RunAsync(allSamples, selectedSamples);
+            await RunAsync(selectedSamples);
         });
 
         return rootCommand.Parse(args); ;
     }
 
     public static async Task RunAsync(
-        IEnumerable<(string token, Delegate handler)> allSamples,
         IEnumerable<(string token, Delegate handler)> selectedSamples)
     {
         foreach (var (_, handler) in selectedSamples)
